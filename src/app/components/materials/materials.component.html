@@ -1,3 +1,5 @@
-<p>
-  materials works!
-</p>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let material of materials">
+    <a [routerLink]="['/material/'+material.key]">{{material.name}}</a>
+  </li>
+</ul>
