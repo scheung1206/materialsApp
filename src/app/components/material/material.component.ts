@@ -18,7 +18,7 @@ export class MaterialComponent implements OnInit {
 
     this.firebaseService.getMaterialDetails(this.id).subscribe(material => {
       this.material = material;
-      console.log(material);
+      //console.log(material);
       // @TODO - Storage Ref
     });
   }

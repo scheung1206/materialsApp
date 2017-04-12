@@ -13,7 +13,7 @@ export class MaterialsComponent implements OnInit {
 
   ngOnInit() {
     this.firebaseService.getMaterials().subscribe(materials => {
-      console.log(materials);
+      //console.log(materials);
       this.materials = materials;
     });
   }
