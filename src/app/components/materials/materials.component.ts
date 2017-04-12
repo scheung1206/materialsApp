@@ -8,12 +8,18 @@ import {FirebaseService} from '../../services/firebase.service';
 })
 export class MaterialsComponent implements OnInit {
   materials:any;
+  search:any;
 
   constructor(private firebaseService:FirebaseService) { }
 
   ngOnInit() {
     this.firebaseService.getMaterials().subscribe(materials => {
       //console.log(materials);
+      this.materials = materials;
+    });
+  }
+  searchMaterials(){
+    this.firebaseService.getMaterialsByName(this.search.toLowerCase()).subscribe(materials => {
       this.materials = materials;
     });
   }

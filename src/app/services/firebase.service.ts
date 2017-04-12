@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class FirebaseService {
@@ -17,6 +19,12 @@ getMaterialDetails(id){
   this.material = this.af.database.object('/materials/'+id) as FirebaseObjectObservable<Material>
   return this.material;
 }
+
+getMaterialsByName(name: any): Observable<Material[]> {
+    return this.af.database.list('materials')
+      .map(_materials => _materials.filter(material => material.name.toLowerCase().indexOf(name) !== -1));
+
+  }
 
 }
 

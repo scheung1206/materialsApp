@@ -1,3 +1,8 @@
+<form class="well">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search materials..." [(ngModel)]="search" name="search" (keyup)="searchMaterials()">
+			</div>
+		</form>
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let material of materials">
     <a [routerLink]="['/material/'+material.$key]">{{material.name}}</a>
