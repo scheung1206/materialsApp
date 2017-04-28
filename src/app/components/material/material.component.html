@@ -1,8 +1,20 @@
 <a [routerLink]="['/materials']">Go Back</a>
 <br>
-<h2 class="page-header">{{material.name}}<small>{{material.description}}</small></h2>
+<h2 class="page-header">{{material.name}}</h2>
+<p>{{material.description}}</p>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
+    <h3 *ngIf="material.altNames"> Alternative Names </h3>
+    <ul *ngIf="material.altNames" class="list-group">
+      <li *ngFor="let name of material.altNames" class="list-group-item">
+        {{name}}
+      </li>
+    </ul>
+    <h3 *ngIf="material.environmental.endOfLifeTreatment"> End of Life </h3>
+    <p> {{material.environmental.endOfLifeTreatment}}</p>
+    <h3 *ngIf="material.environmental.postConsumerRecycledContent"> Post Consumer Recycled Content </h3>
+    <p> {{material.environmental.postConsumerRecycledContent}}</p>
+    <h3 *ngIf="material.components"> Hazards </h3>
     <ul *ngIf="material.components" class="list-group">
       <li *ngFor="let component of material.components" class="list-group-item">
         {{component.name}}
